@@ -1,4 +1,6 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+﻿using Mario;
+
+var builder = WebApplication.CreateBuilder(args);
 
 builder.Services
     .AddEndpointsApiExplorer();
@@ -23,7 +25,7 @@ app.MapGet("/api/products/{id}", (Guid id) =>
 );
 
 // Register new product
-app.MapPost("/api/products/", (RegisterProductRequest request) =>
+app.MapCommand("/api/products/", (RegisterProductRequest request) =>
 {
     var productId = Guid.NewGuid();
     var (sku, name) = request;

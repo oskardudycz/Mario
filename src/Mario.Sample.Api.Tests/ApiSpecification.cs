@@ -31,7 +31,7 @@ public static class ApiSpecification
     ///////////////////
     ////   WHEN    ////
     ///////////////////
-    public static Func<HttpClient, HttpRequestMessage, Task<HttpResponseMessage>> GET = SEND(HttpMethod.Post);
+    public static Func<HttpClient, HttpRequestMessage, Task<HttpResponseMessage>> GET = SEND(HttpMethod.Get);
 
     public static Func<HttpClient, HttpRequestMessage, Task<HttpResponseMessage>> POST = SEND(HttpMethod.Post);
 
@@ -84,7 +84,7 @@ public class ApiSpecification<TProgram>: IDisposable where TProgram : class
     {
     }
 
-    public ApiSpecification(WebApplicationFactory<TProgram> applicationFactory)
+    private ApiSpecification(WebApplicationFactory<TProgram> applicationFactory)
     {
         this.applicationFactory = applicationFactory;
         client = applicationFactory.CreateClient();
