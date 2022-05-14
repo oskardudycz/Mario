@@ -1,2 +1,3 @@
 # Mario
-Sneaky .NET library to pipe your commands, queries and events
+
+Sneaky .NET library to pipe commands, queries and events
